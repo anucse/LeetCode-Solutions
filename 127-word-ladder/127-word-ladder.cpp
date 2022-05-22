@@ -13,8 +13,6 @@ public:
             for(int i=0;i<n;i++){
                 string top=q.front();
                 q.pop();
-                if(top==end)
-                    return ans;
                 
                 for(int j=0;j<top.size();j++){
                     string temp=top;
