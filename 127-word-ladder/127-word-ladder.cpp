@@ -13,8 +13,6 @@ public:
             for(int i=0;i<n;i++){
                 string top=q.front();
                 q.pop();
-                //if(top==end)
-                    //return ans;
                 
                 for(int j=0;j<top.size();j++){
                     string temp=top;
@@ -23,7 +21,7 @@ public:
                         if(temp==top)
                             continue;
                         if(top==end)
-                            return ans;
+                            return ans++;
                         if(word_set.find(top)!=word_set.end()){
                             q.push(top);
                             word_set.erase(top);
