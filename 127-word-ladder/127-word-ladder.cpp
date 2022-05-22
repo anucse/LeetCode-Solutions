@@ -21,7 +21,7 @@ public:
                         if(temp==top)
                             continue;
                         if(top==end)
-                            return ans++;
+                            return ans;
                         if(word_set.find(top)!=word_set.end()){
                             q.push(top);
                             word_set.erase(top);
