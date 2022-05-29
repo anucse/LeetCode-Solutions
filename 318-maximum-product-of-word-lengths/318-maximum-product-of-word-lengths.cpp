@@ -11,7 +11,7 @@ public:
                 mask[i]=mask[i] | (1<<(x-'a'));
             }
             
-            for(int j=0;j<i;j++){
+            for(int j=0;j<i;++j){
                 if(mask[i] & mask[j])
                     continue;
                 int len = words[i].size() * words[j].size();
