@@ -16,7 +16,7 @@ public:
             m[x]--;
         }
         
-        for(auto x:m){
+        for(pair<char,int> x:m){
             if(x.second != 0 )
                 return false;
         }
