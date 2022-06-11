@@ -18,7 +18,8 @@ public:
     }
     bool canFinish(int n, vector<vector<int>>& pre) {
         visited=vector<int> (n,0);
-        graph=vector<vector<int>> (n);
+        graph=vector<vector<int>>(n);
+        
         for(vector<int> x:pre){
             graph[x[1]].push_back(x[0]);
         }
@@ -27,6 +28,7 @@ public:
             if(cycle(i))
                 return false;
         }
+        
         return true;
     }
 };
