@@ -21,7 +21,7 @@ public:
         graph=vector<vector<int>>(n);
         
         for(vector<int> x:pre){
-            graph[x[1]].push_back(x[0]);
+            graph[x[0]].push_back(x[1]);
         }
         
         for(int i=0;i<n;i++){
