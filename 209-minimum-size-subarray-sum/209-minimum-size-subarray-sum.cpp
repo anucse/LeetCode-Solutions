@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // easiest sliding window approach 
     int minSubArrayLen(int target, vector<int>& nums) {
         
         int n=nums.size();
