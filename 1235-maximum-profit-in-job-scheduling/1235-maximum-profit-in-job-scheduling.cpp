@@ -1,20 +1,22 @@
 class Solution {
 public:
     vector<int> dp;
+    
     int recursion(vector<vector<int>> &jobs,int curr_index,int prev_end){
         
+        // if no more jobs left
         if(curr_index==jobs.size())
             return 0;
         
-        // exclude current job 
-        if(jobs[curr_index][0]<prev_end){
+        // if current job starts before previous job ends then exclude current job
+        if(jobs[curr_index][0]<prev_end)
             return recursion(jobs,curr_index+1,prev_end);
-        }
+        
         
         if(dp[curr_index]!=-1)
             return dp[curr_index];
         
-        int res= max(jobs[curr_index][2]+recursion(jobs,curr_index+1,jobs[curr_index][1]),recursion(jobs,curr_index+1,prev_end));
+        int res=max(jobs[curr_index][2]+recursion(jobs,curr_index+1,jobs[curr_index][1]),recursion(jobs,curr_index+1,prev_end));
         
         return dp[curr_index]=res;
     }
@@ -31,8 +33,8 @@ public:
         
         sort(jobs.begin(),jobs.end());
         
-        dp=vector<int>(n,-1);
+        dp.resize(n,-1);
         
-        return recursion(jobs,0,0); // jobs,curr_index,prev_end
+        return recursion(jobs,0,0);
     }
 };
