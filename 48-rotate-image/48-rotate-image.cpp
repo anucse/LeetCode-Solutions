@@ -3,9 +3,7 @@ public:
     void transpose(vector<vector<int>>& matrix){
         for(int i=0;i<matrix.size();i++){
             for(int j=0;j<i;j++){
-                int temp=matrix[j][i];
-                matrix[j][i]=matrix[i][j];
-                matrix[i][j]=temp;
+                swap(matrix[i][j],matrix[j][i]);
             }
         }
     }
