@@ -10,8 +10,8 @@ using namespace std;
 
 class Solution{
     public:
+    vector<vector<bool>> visited;
     vector<string> ans;
-    vector<vector<int>> visited;
     
     void solve(vector<vector<int>> &grid, int n,int i,int j,string temp){
         if(i==n-1 && j==n-1){
@@ -20,36 +20,34 @@ class Solution{
         }
         
         if(i+1<n && !visited[i+1][j] && grid[i+1][j]==1){
-            visited[i][j]=1;
+            visited[i][j]=true;
             solve(grid,n,i+1,j,temp+'D');
-            visited[i][j]=0;
+            visited[i][j]=false;
         }
         
         if(j+1<n && !visited[i][j+1] && grid[i][j+1]==1){
-            visited[i][j]=1;
+            visited[i][j]=true;
             solve(grid,n,i,j+1,temp+'R');
-            visited[i][j]=0;
+            visited[i][j]=false;
         }
         
         if(i-1>=0 && !visited[i-1][j] && grid[i-1][j]==1){
-            visited[i][j]=1;
+            visited[i][j]=true;
             solve(grid,n,i-1,j,temp+'U');
-            visited[i][j]=0;
+            visited[i][j]=false;
         }
         
         if(j-1>=0 && !visited[i][j-1] && grid[i][j-1]==1){
-            visited[i][j]=1;
+            visited[i][j]=true;
             solve(grid,n,i,j-1,temp+'L');
-            visited[i][j]=0;
+            visited[i][j]=false;
         }
     }
     vector<string> findPath(vector<vector<int>> &grid, int n) {
-        visited.resize(n,vector<int>(n,0));
-        if(grid[0][0]==0)
-            return {};
-        solve(grid,n,0,0,"");
+        visited.resize(n,vector<bool>(n,false));
+        if(grid[0][0]==1)
+            solve(grid,n,0,0,"");
         return ans;
-        
     }
 };
 
