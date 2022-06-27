@@ -28,19 +28,20 @@ class Solution{
     {
        int start=0;
        int deficit=0;
-       int capacity=0;
+       int curr=0;
+       
        for(int i=0;i<n;i++){
-           capacity=capacity+p[i].petrol-p[i].distance;
-           if(capacity<0){
+           curr=curr+p[i].petrol-p[i].distance;
+           if(curr<0){
+               deficit+=curr;
+               curr=0;
                start=i+1;
-               deficit+=capacity;
-               capacity=0;
            }
        }
-       if(deficit+capacity>=0)
-           return start;
-          return -1;
-       
+       deficit=abs(deficit);
+       if(curr<deficit)
+            return -1;
+        return start;
     }
 };
 
