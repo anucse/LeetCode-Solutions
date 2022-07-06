@@ -1,24 +1,33 @@
 class Solution {
 public:
-    
-    int solve(vector<int>& nums,vector<int>& dp,int i,int j){
-        if(i>=j)
-            return 0;
-        if(dp[i]!=-1)
-            return dp[i];
-        return dp[i]=max(solve(nums,dp,i+1,j),solve(nums,dp,i+2,j)+nums[i]);
-    }
-    int rob(vector<int>& nums) {
-        vector<int> dp1(nums.size(),-1);
-        vector<int> dp2(nums.size(),-1);
+    int solve(vector<int>& nums, int n,int i){
+        vector<int> dp(n,INT_MIN);
+        dp[0]=nums[0];
+        dp[1]=max(nums[0],nums[1]);
         
-        if(nums.size()==0)
-            return 0;
-        if(nums.size()==1)
+        for(int i=2;i<n;i++){
+            dp[i]=max(nums[i]+dp[i-2],dp[i-1]);
+        }
+        
+        return dp[n-1];
+    }
+    
+    int rob(vector<int>& nums) {
+        int n=nums.size();
+        vector<int> nums1,nums2;
+        if(n==1)
             return nums[0];
-        if(nums.size()==2)
+        if(n==2)
             return max(nums[0],nums[1]);
         
-        return max(solve(nums,dp1,1,nums.size()),solve(nums,dp2,0,nums.size()-1));
+        
+        for(int i=0;i<nums.size();i++){
+            if(i!=0)
+                nums1.push_back(nums[i]);
+            if(i!=n-1)
+                nums2.push_back(nums[i]);
+        }
+        
+        return max(solve(nums1,n-1,0),solve(nums2,n-1,0));
     }
 };
