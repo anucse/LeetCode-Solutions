@@ -1,15 +1,20 @@
 class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
+        int n=coins.size();
         vector<int> dp(amount+1,amount+1);
+        
         dp[0]=0;
-        for(int curr_amount=1;curr_amount<=amount;curr_amount++){
-            for(int coin :coins){
-                if(coin<=curr_amount){
-                    dp[curr_amount]=min(dp[curr_amount],1+dp[curr_amount-coin]);
+        
+        for(int i=1;i<=amount;i++){
+            for(int j=0;j<n;j++){
+                if(coins[j]<=i){
+                    dp[i]=min(dp[i],1+dp[i-coins[j]]);
                 }
             }
         }
-        return (dp[amount]==amount+1)?-1:dp[amount];
+        if(dp[amount]==amount+1)
+            return -1;
+        return dp[amount];
     }
 };
