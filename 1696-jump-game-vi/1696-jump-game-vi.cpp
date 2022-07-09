@@ -1,3 +1,5 @@
+// time : O(nlogn)  , space : O(n)
+
 class Solution {
 public:
     int maxResult(vector<int>& nums, int k) {
