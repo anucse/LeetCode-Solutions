@@ -11,8 +11,8 @@ private:
         if(currSum==target)
             return solve(nums,target,0,0,sides-1);
         
-        if(currSum>target)
-            return false;
+        //if(currSum>target)
+         //   return false;
         
         for(int j=i;j<nums.size();j++){
             if(target<nums[j] || visited[j])
