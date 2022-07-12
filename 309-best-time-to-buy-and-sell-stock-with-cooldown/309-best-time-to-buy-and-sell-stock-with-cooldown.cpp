@@ -1,24 +1,27 @@
 class Solution {
 public:
-    int solve(vector<int>& nums,vector<vector<int>>& dp, int n,int i,bool buying){
-        if(i>=n)
+    vector<vector<int>> dp;
+    int solve(vector<int>& prices,int i,int allowedToBuy){
+        if(i>=prices.size())
             return 0;
-        if(dp[i][buying]!=-1)
-            return dp[i][buying];
-        int cooldown=solve(nums,dp,n,i+1,buying);
-        if (buying){
-            int buy=solve(nums,dp,n,i+1,!buying)-nums[i];
-            dp[i][buying]= max(buy,cooldown);
+        if(dp[i][allowedToBuy]!=-1)
+            return dp[i][allowedToBuy];
+        
+        int cooldown=solve(prices,i+1,allowedToBuy);
+        
+        if(allowedToBuy){
+            int buy=solve(prices,i+1,!allowedToBuy)-prices[i];
+            dp[i][allowedToBuy]=max(cooldown,buy);
         }
         else{
-            int sell =solve(nums,dp,n,i+2,!buying)+nums[i];
-            dp[i][buying] = max(sell,cooldown);
+            int sell=solve(prices,i+2,!allowedToBuy)+prices[i];
+            dp[i][allowedToBuy]=max(sell,cooldown);
         }
-        return dp[i][buying];
+        
+        return dp[i][allowedToBuy];
     }
-    int maxProfit(vector<int>& nums) {
-        int n=nums.size();
-        vector<vector<int>> dp(n,vector<int>(2,-1));
-        return solve(nums,dp,nums.size(),0,true);
+    int maxProfit(vector<int>& prices) {
+        dp.resize(prices.size(),vector<int>(2,-1));
+        return solve(prices,0,true);
     }
 };
