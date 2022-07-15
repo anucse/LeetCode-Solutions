@@ -16,18 +16,18 @@ public:
             s2Hash[s2[h]-'a']++;
         }
         
-        h--;
+        //h--;
         
-        while(h<n){
+        while(h<=n){
             if(s1Hash==s2Hash)
                 return true;
             else{
                 s2Hash[s2[l]-'a']--;
                 l++;
-                h++;
+                
                 if(h<n)
                     s2Hash[s2[h]-'a']++;
-                
+                h++;
             }
         }
         
