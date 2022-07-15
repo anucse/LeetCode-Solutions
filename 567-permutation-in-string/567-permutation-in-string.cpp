@@ -1,41 +1,36 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
-        
-        vector<int> s1_hash(26,0),s2_hash(26,0);
-        
+        int n=s2.size();
         if(s1.size()>s2.size())
             return false;
-        
-        
-        for(char c:s1)
-            s1_hash[c-'a']++;
-        
-        int low=0;
-        int high;
-        
-        for(high=0;high<s1.size();high++){
-            
-            s2_hash[s2[high]-'a']++;
-            
+        vector<int> s1Hash(26,0),s2Hash(26,0);
+        for(char c:s1){
+            s1Hash[c-'a']++;
         }
         
-        high-=1;
+        int l=0;
+        int h;
         
-        while(high<s2.size()){
-            if(s1_hash==s2_hash)
+        for(h=0;h<s1.size();h++){
+            s2Hash[s2[h]-'a']++;
+        }
+        
+        h--;
+        
+        while(h<n){
+            if(s1Hash==s2Hash)
                 return true;
-            
             else{
-                s2_hash[s2[low]-'a']--;
-                low++;
-
-                high++;
-                if(high<s2.size())
-                    s2_hash[s2[high]-'a']++;
+                s2Hash[s2[l]-'a']--;
+                l++;
+                h++;
+                if(h<n)
+                    s2Hash[s2[h]-'a']++;
+                
             }
-            
         }
+        
         return false;
     }
 };
