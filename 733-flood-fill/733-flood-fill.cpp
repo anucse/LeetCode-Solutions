@@ -1,17 +1,22 @@
 class Solution {
 public:
-    void dfs(vector<vector<int>>& image, int i, int j, int newColor,int oldColor){
-        if(i<0||j<0||i>=image.size()||j>=image[0].size()||image[i][j]!=oldColor||image[i][j]==newColor)
-            return ;
+    void solve(vector<vector<int>>& image,int i,int j,int oldColor,int newColor){
+        int r=image.size();
+        int c=image[0].size();
+        
+        if(i>=r || j>=c || i<0||j<0||image[i][j]!=oldColor||image[i][j]==newColor)
+            return;
+        
         image[i][j]=newColor;
-        dfs(image,i+1,j,newColor,oldColor);
-        dfs(image,i-1,j,newColor,oldColor);
-        dfs(image,i,j+1,newColor,oldColor);
-        dfs(image,i,j-1,newColor,oldColor);
+        
+        solve(image,i+1,j,oldColor,newColor);
+        solve(image,i-1,j,oldColor,newColor);
+        solve(image,i,j+1,oldColor,newColor);
+        solve(image,i,j-1,oldColor,newColor);
+        
     }
-    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
-        int oldColor=image[sr][sc];
-        dfs(image,sr,sc,newColor,oldColor);
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        solve(image,sr,sc,image[sr][sc],color);
         return image;
     }
 };
