@@ -1,19 +1,20 @@
 class Solution {
 public:
-    bool canConstruct(string ransom, string magazine) {
-        vector<int> v(26,0);
-        int r=ransom.size();
-        int m=magazine.size();
-        for(int i=0;i<m;i++){
-            v[magazine[i]-'a']++;
-        }
-        for(int i=0;i<r;i++){
-            v[ransom[i]-'a']--;
-        }
+    bool canConstruct(string ransomNote, string magazine) {
+        unordered_map<char,int> m;
+        for(char c:magazine)
+            m[c]++;
         
-        for(int x:v){
-            if(x<0)
+        for(char c:ransomNote){
+            if(m.find(c)==m.end()){
                 return false;
+            }
+            else{
+                if(m[c]==1)
+                    m.erase(c);
+                else
+                    m[c]--;
+            }
         }
         return true;
     }
