@@ -13,19 +13,20 @@ public:
     ListNode* reverseList(ListNode* head) {
         if(!head || !head->next)
             return head;
-        ListNode* one =NULL;
-        ListNode* two=head;
-        ListNode* three=head->next;
+        
+        ListNode *one=NULL;
+        ListNode *two=head;
+        ListNode *three=head->next;
         
         while(two){
             two->next=one;
-            one = two;
-            two=three ;
+            one=two;
+            two=three;
             if(three)
                 three=three->next;
         }
         
-        head=one;
-        return head;
+        return one;
+        
     }
 };
