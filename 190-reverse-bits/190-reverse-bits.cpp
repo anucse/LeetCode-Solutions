@@ -5,7 +5,7 @@ public:
         for(int i=0;i<32;i++){
             int mod=n%2;
             ans=ans*2+mod;
-            n=n/2;
+            n=n>>1;
         }
         
         return ans;
