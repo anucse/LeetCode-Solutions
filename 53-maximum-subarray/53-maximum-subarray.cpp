@@ -1,16 +1,15 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int sum=0;
-        int maxSum=INT_MIN;
-        
+        int ans=INT_MIN;
+        int curr=0;
         for(int i=0;i<nums.size();i++){
-            sum=sum+nums[i];
-            maxSum=max(maxSum,sum);
-            
-            sum=max(sum,0);
+            curr+=nums[i];
+            ans=max(ans,curr);
+            if(curr<0)
+                curr=0;
         }
         
-        return maxSum;
+        return ans;
     }
 };
