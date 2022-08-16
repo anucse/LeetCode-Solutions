@@ -1,24 +1,21 @@
 class Solution {
 public:
-    int solve(vector<int> &nums,int n){
+    int solve(vector<int> &nums,int start, int end){
         
-        if(n==1)
-            return nums[0];
-        if(n==2)
-            return max(nums[0],nums[1]);
+        
         
         int ans;
-        int prev2=nums[0];
-        int prev1=max(nums[0],nums[1]);
+        int prev2=0;
+        int prev1=0;
         
-        for(int i=2;i<n;i++){
+        for(int i=start;i<=end;i++){
             
             ans=max(prev1,prev2+nums[i]);
             prev2=prev1;
             prev1=ans;
         }
         
-        return ans;
+        return prev1;
         
     }
     
@@ -29,15 +26,8 @@ public:
         if(n==1)
             return nums[0];
         
-        vector<int> nums1,nums2;
         
-        for(int i=0;i<n;i++){
-            if(i!=0)
-                nums2.push_back(nums[i]);
-            if(i!=n-1)
-                nums1.push_back(nums[i]);
-        }
         
-        return max(solve(nums1,n-1),solve(nums2,n-1));
+        return max(solve(nums,0,n-2),solve(nums,1,n-1));
     }
 };
