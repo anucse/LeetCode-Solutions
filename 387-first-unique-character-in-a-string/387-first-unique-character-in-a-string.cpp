@@ -1,18 +1,20 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        int index=-1;
         unordered_map<char,int> m;
-        for(char c:s)
+        for(char c: s){
             m[c]++;
-        
-        for(int i=0;i<s.size();i++){
-            if(m[s[i]]==1){
-                index=i;
-                break;
-            }
         }
         
-        return index;
+        int i=0;
+        
+        for(char c:s){
+            if(m[c]==1){
+                return i;
+            }
+            i++;
+        }
+        
+        return -1;
     }
 };
