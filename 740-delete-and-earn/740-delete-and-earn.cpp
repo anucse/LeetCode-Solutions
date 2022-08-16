@@ -20,9 +20,16 @@ public:
             count[x]++;
         }
         
-        vector<int> dp(10001,-1);
+        vector<int> dp(10001,0);
         
-        return solve(count,dp,1);
+        dp[1]=count[1];
+        dp[2]=max(count[2]*2,count[1]);
+        
+        for(int i=3;i<=10000;i++){
+            dp[i]=max(dp[i-1],dp[i-2]+count[i]*i);
+        }
+        
+        return dp[10000];
         
     }
 };
