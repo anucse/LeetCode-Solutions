@@ -1,21 +1,21 @@
 class Solution {
 public:
-    int solve(vector<int>& nums,vector<int>& dp, int n,int i){
-        if(i==n-1)
-            return 0;
-        if(i>=n)
-            return 0;
-        if(dp[i]!=-1)
-            return dp[i];
-        int ans=10000;
-        for(int j=i+1;j<=i+nums[i];j++){
-            ans=min(ans,solve(nums,dp,n,j)+1);
-        }
-        return dp[i]=ans;
-    }
     int jump(vector<int>& nums) {
         int n=nums.size();
-        vector<int>dp(n,-1);
-        return solve(nums,dp,n,0);
+        if(n==1)
+            return 0;
+        if(n==2)
+            return 1;
+        vector<int> dp(n,10000);
+        dp[n-1]=0;
+        dp[n-2]=1;
+        for(int i=n-3;i>=0;i--){
+            for(int j=1;j<=nums[i];j++){
+                if(i+j>=n)
+                    continue;
+                dp[i]=min(dp[i],dp[i+j]+1);
+            }
+        }
+        return dp[0];
     }
 };
