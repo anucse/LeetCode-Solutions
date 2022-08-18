@@ -1,25 +1,29 @@
 class Solution {
 public:
-    // easiest sliding window approach 
     int minSubArrayLen(int target, vector<int>& nums) {
         
         int n=nums.size();
-        int low=0;
+        int l=0;
+        int r;
+        int sum=0;
+        int ans=INT_MAX;
         
-        int window_size=INT_MAX;
-        int window_sum=0;
-        
-        for(int high=0;high<n;high++){
+        for(r=0;r<n;r++){
+           
+            sum+=nums[r];
             
-            window_sum+=nums[high];
-            
-            while(low<=high && window_sum>=target){
-                window_size=min(window_size,high-low+1);
+            while(l<=r && sum>=target){
                 
-                window_sum-=nums[low];
-                low++;
+                ans=min(ans,r-l+1);
+                
+                sum-=nums[l];
+                l++;
             }
+            
         }
-        return window_size==INT_MAX?0:window_size;
+        
+        if(ans==INT_MAX)
+            return 0;
+        return ans;
     }
 };
