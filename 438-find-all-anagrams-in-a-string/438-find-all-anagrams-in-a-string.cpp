@@ -1,29 +1,39 @@
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
-        int ss=s.size();
-        int ps=p.size();
-        if(ss<ps)
-            return {};
+        
+        int pLen=p.size();
+        int n=s.size();
         vector<int> ans;
-        int left=0;
-        int right=0;
-        vector<int> s_hash(26,0);
-        vector<int> p_hash(26,0);
-        for(int i=0;i<ps;i++){
-            p_hash[p[i]-'a']++;
-            s_hash[s[i]-'a']++;
+        
+        unordered_map<char,int> pHash;
+        for(char c:p){
+            pHash[c]++;
         }
-        right=ps-1;
-        while(right<ss){
-            if(s_hash==p_hash)
-                ans.push_back(left);
-            right++;
-            if(right!=ss){
-                s_hash[s[right]-'a']++;
+        
+        int l=0;
+        int r=0;
+        unordered_map<char,int> sHash;
+        while(r<pLen){
+            sHash[s[r]]++;
+            r++;
+        }
+        
+        r--;
+        
+        while(r<n){
+            if(sHash==pHash){
+                ans.push_back(l);
             }
-            s_hash[s[left]-'a']--;
-            left++;
+            
+            r++;
+            sHash[s[r]]++;
+            if(sHash[s[l]]==1)
+                sHash.erase(s[l]);
+            else
+                sHash[s[l]]--;
+            l++;
+            
         }
         return ans;
     }
