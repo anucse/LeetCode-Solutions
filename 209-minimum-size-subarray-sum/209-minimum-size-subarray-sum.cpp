@@ -9,21 +9,14 @@ public:
         int ans=INT_MAX;
         
         for(r=0;r<n;r++){
-           
             sum+=nums[r];
-            
-            while(l<=r && sum>=target){
-                
+            while(sum>=target && l<=r){
                 ans=min(ans,r-l+1);
-                
                 sum-=nums[l];
                 l++;
             }
-            
         }
         
-        if(ans==INT_MAX)
-            return 0;
-        return ans;
+        return ans==INT_MAX?0:ans;
     }
 };
