@@ -1,34 +1,35 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
-        int n=s2.size();
-        if(s1.size()>s2.size())
+        
+        unordered_map<char,int> s1Hash,s2Hash;
+        int s1Len=s1.size();
+        int s2Len=s2.size();
+        
+        if(s1Len>s2Len)
             return false;
-        vector<int> s1Hash(26,0),s2Hash(26,0);
-        for(char c:s1){
-            s1Hash[c-'a']++;
-        }
         
         int l=0;
-        int h;
+        int r=0;
         
-        for(h=0;h<s1.size();h++){
-            s2Hash[s2[h]-'a']++;
+        while(r<s1Len){
+            s1Hash[s1[r]]++;
+            s2Hash[s2[r]]++;
+            r++;
         }
         
-        //h--;
+        r--;
         
-        while(h<=n){
+        while(r<s2Len){
             if(s1Hash==s2Hash)
                 return true;
-            else{
-                s2Hash[s2[l]-'a']--;
-                l++;
-                
-                if(h<n)
-                    s2Hash[s2[h]-'a']++;
-                h++;
-            }
+            r++;
+            s2Hash[s2[r]]++;
+            if(s2Hash[s2[l]]==1)
+                s2Hash.erase(s2[l]);
+            else
+                s2Hash[s2[l]]--;
+            l++;
         }
         
         return false;
