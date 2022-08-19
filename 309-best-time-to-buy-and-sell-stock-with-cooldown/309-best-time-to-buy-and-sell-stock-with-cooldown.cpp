@@ -1,27 +1,25 @@
 class Solution {
 public:
-    vector<vector<int>> dp;
-    int solve(vector<int>& prices,int i,int allowedToBuy){
-        if(i>=prices.size())
-            return 0;
-        if(dp[i][allowedToBuy]!=-1)
-            return dp[i][allowedToBuy];
-        
-        int cooldown=solve(prices,i+1,allowedToBuy);
-        
-        if(allowedToBuy){
-            int buy=solve(prices,i+1,!allowedToBuy)-prices[i];
-            dp[i][allowedToBuy]=max(cooldown,buy);
-        }
-        else{
-            int sell=solve(prices,i+2,!allowedToBuy)+prices[i];
-            dp[i][allowedToBuy]=max(sell,cooldown);
-        }
-        
-        return dp[i][allowedToBuy];
-    }
     int maxProfit(vector<int>& prices) {
-        dp.resize(prices.size(),vector<int>(2,-1));
-        return solve(prices,0,true);
+        
+        int n=prices.size();
+        if(n==1)
+            return 0;
+        
+        vector<int> buy(n),sell(n);
+        
+        buy[0]=-prices[0];
+        sell[0]=0;
+        
+        buy[1]=max(-prices[0],-prices[1]);
+        sell[1]=max(0,prices[1]-prices[0]);
+        
+        for(int i=2;i<n;i++){
+            
+            buy[i]=max(buy[i-1],sell[i-2]-prices[i]);
+            sell[i]=max(sell[i-1],buy[i-1]+prices[i]);
+        }
+        
+        return sell[n-1];
     }
 };
