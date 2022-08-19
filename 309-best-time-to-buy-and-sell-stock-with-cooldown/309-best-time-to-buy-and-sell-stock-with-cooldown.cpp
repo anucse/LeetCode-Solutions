@@ -6,20 +6,21 @@ public:
         if(n==1)
             return 0;
         
-        vector<int> buy(n),sell(n);
+        //vector<int> buy(n),sell(n);
         
-        buy[0]=-prices[0];
-        sell[0]=0;
-        
-        buy[1]=max(-prices[0],-prices[1]);
-        sell[1]=max(0,prices[1]-prices[0]);
+        int prevBuy=max(-prices[0],-prices[1]);
+        int prevSell2=0;
+        int prevSell1=max(0,prices[1]-prices[0]);
         
         for(int i=2;i<n;i++){
             
-            buy[i]=max(buy[i-1],sell[i-2]-prices[i]);
-            sell[i]=max(sell[i-1],buy[i-1]+prices[i]);
+            int currBuy=max(prevBuy,prevSell2-prices[i]);
+            int currSell=max(prevSell1,prevBuy+prices[i]);
+            prevSell2=prevSell1;
+            prevSell1=currSell;
+            prevBuy=currBuy;
         }
         
-        return sell[n-1];
+        return prevSell1;
     }
 };
