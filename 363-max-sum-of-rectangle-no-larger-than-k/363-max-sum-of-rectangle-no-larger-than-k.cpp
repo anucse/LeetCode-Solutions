@@ -12,15 +12,15 @@ public:
                 }
                 set<int> s={0};
                 int curr=0;
-                int currMax=INT_MIN;
+                
                 for(int x:sum){
                     curr+=x;
                     auto it=s.lower_bound(curr-k);
                     if(it!=s.end())
-                        currMax=max(currMax,curr-*it);
+                        ans=max(ans,curr-*it);
                     s.insert(curr);
                 }
-                ans=max(ans,currMax);
+                
             }
         }
         return ans;
