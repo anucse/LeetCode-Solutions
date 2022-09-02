@@ -14,39 +14,30 @@ public:
     int height(TreeNode* root){
         if(!root)
             return 0;
-        return max(height(root->left),height(root->right))+1;
+        return 1+max(height(root->left),height(root->right));
     }
-    
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
-        
-        if(!root)
-            return {};
-        
         int h=height(root);
-        
+        if(h==0)
+            return {};
         vector<vector<int>> ans(h);
-        
         queue<TreeNode*> q;
         q.push(root);
-        
         while(!q.empty()){
-            int s=q.size();
+            int n=q.size();
             h--;
             vector<int> temp;
-            while(s--){
-                
-                TreeNode* node=q.front();
+            while(n--){
+                TreeNode* top=q.front();
                 q.pop();
-                temp.push_back(node->val);
-                if(node->left)
-                    q.push(node->left);
-                if(node->right)
-                    q.push(node->right);
-                
+                temp.push_back(top->val);
+                if(top->left)
+                    q.push(top->left);
+                if(top->right)
+                    q.push(top->right);
             }
             ans[h]=temp;
         }
-        
         return ans;
     }
 };
