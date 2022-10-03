@@ -24,8 +24,11 @@ public:
                 j++;
             }
             
+            
+            if(j>i)
+                gain+=maxTime;
+            
             i=j;
-            gain+=maxTime;
         }
         
         return totalTime-gain;
