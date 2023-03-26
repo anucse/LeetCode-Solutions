@@ -17,31 +17,29 @@ public:
         
         while(l1 && l2){
             if(l1->val < l2->val){
-                ListNode* node=new ListNode(l1->val);
-                temp->next=node;
-                temp=temp->next;
+                temp->next=l1;
                 l1=l1->next;
+                temp=temp->next;
+                
             }
             else{
-                ListNode* node=new ListNode(l2->val);
-                temp->next=node;
-                temp=temp->next;
+                temp->next=l2;
                 l2=l2->next;
+                temp=temp->next;
             }
+            
         }
         
         while(l1){
-            ListNode* node=new ListNode(l1->val);
-            temp->next=node;
-            temp=temp->next;
+            temp->next=l1;
             l1=l1->next;
+            temp=temp->next;
         }
         
         while(l2){
-            ListNode* node=new ListNode(l2->val);
-            temp->next=node;
-            temp=temp->next;
+            temp->next=l2;
             l2=l2->next;
+            temp=temp->next;
         }
         
         return l3->next;
