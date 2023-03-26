@@ -6,8 +6,9 @@ public:
         stack<char> st;
         st.push(s[0]);
         i++;
+        int n=s.size();
         
-        while(i<s.size()){
+        while(i<n){
             if(!st.empty() && st.top()==s[i]){
                 st.pop();
             }
