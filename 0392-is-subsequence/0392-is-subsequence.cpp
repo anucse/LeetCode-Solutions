@@ -21,6 +21,19 @@ public:
         int n=t.size();
         if(m>n)
             return false;
-        return solve(s,t,0,0,m,n);
+        int i=0,j=0;
+        while(i<m && j<n){
+            if(s[i]==t[j]){
+                i++;
+                j++;
+            }
+            else{
+                j++;
+            }
+        }
+        
+        if(i!=m && j==n)
+            return false;
+        return true;
     }
 };
