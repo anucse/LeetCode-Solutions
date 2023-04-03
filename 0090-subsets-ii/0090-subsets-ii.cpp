@@ -2,6 +2,7 @@ class Solution {
 public:
     
     vector<vector<int>> ans;
+    set<vector<int>> st;
     vector<int> temp;
     
     void solve(vector<int> &nums,int n,int k,int i){
@@ -9,9 +10,8 @@ public:
         
         
         if(k<0 || i>=n){
-            bool present=find(ans.begin(),ans.end(),temp)!=ans.end();
-            if(!present)
-                ans.push_back(temp);
+            
+            st.insert(temp);
             return ;
         }
         
@@ -28,6 +28,10 @@ public:
         int n=nums.size();
         for(int k=0;k<=n;k++){
             solve(nums,n,k,0);
+        }
+        
+        for(vector<int> x:st){
+            ans.push_back(x);
         }
         
         return ans;
