@@ -13,8 +13,11 @@ public:
         
         return true;
     }
-    void solve(string s,int n){
+   
+    int countSubstrings(string s) {
+        int n=s.size();
         ans=n;
+        
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
                 if(palindrome(s.substr(i,j-i+1)))
@@ -22,10 +25,7 @@ public:
             }
         }
         
-        
-    }
-    int countSubstrings(string s) {
-        solve(s,s.size());
         return ans;
+        
     }
 };
