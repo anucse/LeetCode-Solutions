@@ -12,9 +12,9 @@ public:
         if(j<n2 && s2[j]==s3[k])
             match= match || solve(dp,s1,s2,s3,n1,n2,n3,i,j+1,k+1);
         
-        dp[i][j]=match;
+        return dp[i][j]=match;
         
-        return match;
+        
         
     }
     bool isInterleave(string s1, string s2, string s3) {
