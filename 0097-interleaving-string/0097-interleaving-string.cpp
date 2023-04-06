@@ -6,7 +6,7 @@ public:
         if(k==n3)
             return true;
         if(dp[i][j]!=-1)
-            return dp[i][j]==1;
+            return dp[i][j];
         if(i<n1 && s1[i]==s3[k])
             match= match || solve(dp,s1,s2,s3,n1,n2,n3,i+1,j,k+1); 
         if(j<n2 && s2[j]==s3[k])
