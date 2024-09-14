@@ -11,18 +11,26 @@
  */
 class Solution {
 public:
-    int ans=0;
-    int diameter(TreeNode* root){
+int ans=0;
+    int depth(TreeNode* root){
         if(!root)
             return 0;
-        int l=diameter(root->left);
-        int r=diameter(root->right);
-        
-        ans=max(ans,l+r);
-        return 1+max(l,r);
+        return max (depth(root->left),depth(root->right))+1;
     }
+
+    void solve(TreeNode* root){
+        if(!root)
+            return;
+        solve(root->left);
+        solve(root->right);
+        int l_depth=depth(root->left);
+        int r_depth=depth(root->right);
+        ans=max(ans,l_depth+r_depth);
+    }
+
     int diameterOfBinaryTree(TreeNode* root) {
-        diameter(root);
+        
+        solve(root);
         return ans;
     }
 };
