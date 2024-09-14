@@ -11,26 +11,22 @@
  */
 class Solution {
 public:
-    bool sameTree(TreeNode* p, TreeNode* q) {
-        
+    bool isSame(TreeNode* p, TreeNode* q){
         if(!p && !q)
             return true;
-        if(!p || !q )
-            return false;
+        if(!p || !q)
+        return false;
         
-        return (p->val == q->val ) && sameTree(p->left,q->left) && sameTree(p->right,q->right);
+        return (p->val == q->val) && isSame(p->left,q->left) && isSame(p->right,q->right);
     }
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
         if(!root && !subRoot)
             return true;
-        if(sameTree(root,subRoot))
+        if(!root || !subRoot)
+            return false;
+        if(isSame(root,subRoot))
             return true;
-        bool l=false,r=false;
-        if(root->left)
-            l = isSubtree(root->left,subRoot);
-        if(root->right)
-            r = isSubtree(root->right,subRoot);
         
-        return l||r;
+        return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
     }
 };
