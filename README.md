@@ -10,6 +10,7 @@
 | [0037-sudoku-solver](https://github.com/anucse/LeetCode-Solutions/tree/main/0037-sudoku-solver/) | Hard |
 | [0198-house-robber](https://github.com/anucse/LeetCode-Solutions/tree/master/0198-house-robber) |
 | [0221-maximal-square](https://github.com/anucse/LeetCode-Solutions/tree/master/0221-maximal-square) |
+| [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
 | [0740-delete-and-earn](https://github.com/anucse/LeetCode-Solutions/tree/master/0740-delete-and-earn) |
 | [0746-min-cost-climbing-stairs](https://github.com/anucse/LeetCode-Solutions/tree/master/0746-min-cost-climbing-stairs) |
 ## Hash Table
@@ -44,10 +45,23 @@
 | [0070-climbing-stairs](https://github.com/anucse/LeetCode-Solutions/tree/main/0070-climbing-stairs/) | Easy |
 | [0198-house-robber](https://github.com/anucse/LeetCode-Solutions/tree/master/0198-house-robber) |
 | [0221-maximal-square](https://github.com/anucse/LeetCode-Solutions/tree/master/0221-maximal-square) |
+| [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
 | [0740-delete-and-earn](https://github.com/anucse/LeetCode-Solutions/tree/master/0740-delete-and-earn) |
 | [0746-min-cost-climbing-stairs](https://github.com/anucse/LeetCode-Solutions/tree/master/0746-min-cost-climbing-stairs) |
 ## Memoization
 |  |
 | ------- |
 | [0070-climbing-stairs](https://github.com/anucse/LeetCode-Solutions/tree/main/0070-climbing-stairs/) | Easy |
+## Binary Search
+|  |
+| ------- |
+| [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
+## Sorting
+|  |
+| ------- |
+| [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
+## Longest Increasing Subsequence
+|  |
+| ------- |
+| [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
 <!---LeetCode Topics End-->
