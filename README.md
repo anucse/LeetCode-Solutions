@@ -11,6 +11,7 @@
 | [0198-house-robber](https://github.com/anucse/LeetCode-Solutions/tree/master/0198-house-robber) |
 | [0221-maximal-square](https://github.com/anucse/LeetCode-Solutions/tree/master/0221-maximal-square) |
 | [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
+| [0646-maximum-length-of-pair-chain](https://github.com/anucse/LeetCode-Solutions/tree/master/0646-maximum-length-of-pair-chain) |
 | [0740-delete-and-earn](https://github.com/anucse/LeetCode-Solutions/tree/master/0740-delete-and-earn) |
 | [0746-min-cost-climbing-stairs](https://github.com/anucse/LeetCode-Solutions/tree/master/0746-min-cost-climbing-stairs) |
 ## Hash Table
@@ -46,6 +47,7 @@
 | [0198-house-robber](https://github.com/anucse/LeetCode-Solutions/tree/master/0198-house-robber) |
 | [0221-maximal-square](https://github.com/anucse/LeetCode-Solutions/tree/master/0221-maximal-square) |
 | [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
+| [0646-maximum-length-of-pair-chain](https://github.com/anucse/LeetCode-Solutions/tree/master/0646-maximum-length-of-pair-chain) |
 | [0740-delete-and-earn](https://github.com/anucse/LeetCode-Solutions/tree/master/0740-delete-and-earn) |
 | [0746-min-cost-climbing-stairs](https://github.com/anucse/LeetCode-Solutions/tree/master/0746-min-cost-climbing-stairs) |
 ## Memoization
@@ -60,8 +62,14 @@
 |  |
 | ------- |
 | [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
+| [0646-maximum-length-of-pair-chain](https://github.com/anucse/LeetCode-Solutions/tree/master/0646-maximum-length-of-pair-chain) |
 ## Longest Increasing Subsequence
 |  |
 | ------- |
 | [0354-russian-doll-envelopes](https://github.com/anucse/LeetCode-Solutions/tree/master/0354-russian-doll-envelopes) |
+| [0646-maximum-length-of-pair-chain](https://github.com/anucse/LeetCode-Solutions/tree/master/0646-maximum-length-of-pair-chain) |
+## Greedy
+|  |
+| ------- |
+| [0646-maximum-length-of-pair-chain](https://github.com/anucse/LeetCode-Solutions/tree/master/0646-maximum-length-of-pair-chain) |
 <!---LeetCode Topics End-->
